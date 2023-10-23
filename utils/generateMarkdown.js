@@ -1,8 +1,10 @@
+// Function to allow user input to be changed to work in image and link
 function formatLicense(license) {
-  // Replace spaces with underscores and convert to lowercase for badge format
+
   if (!license) {
     return { badgeFormat: '', linkFormat: '' }; // Return empty formats for undefined license
   }
+  // Replace spaces with underscores for badge format
   const badgeFormat = license.replace(/\s+/g, '_');
 
   // Replace spaces with dashes for link format
@@ -11,8 +13,7 @@ function formatLicense(license) {
   return { badgeFormat, linkFormat };
 }
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Function to handle whether or not a license is selected
 function renderLicenseBadge(license) {
   if(license !== 'None') {
     const { badgeFormat } = formatLicense(license)
@@ -20,8 +21,7 @@ function renderLicenseBadge(license) {
   } else return ''
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Function to display the license link, if needed
 function renderLicenseLink(license) {
   if (license !== 'None') {
     const { linkFormat } = formatLicense(license)
@@ -29,8 +29,7 @@ function renderLicenseLink(license) {
   } else return ''
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Created the license section, if needed
 function renderLicenseSection(data) {
   if (data.license !== 'None') {
     return `
@@ -40,6 +39,7 @@ ${renderLicenseLink(data.license)}`
   } else return ''
 }
 
+// Creates the License in Table of contents, if needed
 function renderLicenseTOC(data) {
   if (data.license !== 'None') {
     return `* [License](#License)`
@@ -47,7 +47,7 @@ function renderLicenseTOC(data) {
 }
 
 
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title} ${renderLicenseBadge(data.license)}
 ## Description
@@ -96,6 +96,7 @@ If you have any questions, feel free to contact me at ${data.email}.
 `;
 }
 
+// Allow the file to be accessed by the index.js file
 module.exports = generateMarkdown;
 
 
