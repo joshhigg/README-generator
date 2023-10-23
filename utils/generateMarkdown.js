@@ -33,30 +33,69 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(data) {
   if (data.license !== 'None') {
-    return `### License
-  ${renderLicenseLink(data.license)}`
+    return `
+<a id="License"></a>
+## License
+${renderLicenseLink(data.license)}`
   } else return ''
 }
+
+function renderLicenseTOC(data) {
+  if (data.license !== 'None') {
+    return `* [License](#License)`
+  } else return ''
+}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title} ${renderLicenseBadge(data.license)}
+## Description
+
 ${data.desc}
-\n
-## Installation Instructions
+
+## Table of Contents
+
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+${renderLicenseTOC(data)}
+* [Questions](#Questions)
+
+<a id="Installation"></a>
+## Installation
+
 ${data.install}
-\n
-## Usage Information
+
+<a id="Usage"></a>
+## Usage
+
 ${data.usage}
-\n
-## Contribution Guidelines
+
+<a id="Contributing"></a>
+## Contributing
+
 ${data.contribution}
-\n
-## Test Instructions
+
+<a id="Tests"></a>
+## Tests
+
 ${data.test}
-\n
+
+
 ${renderLicenseSection(data)}
+
+<a id="Questions"></a>
+### Questions
+---
+[GitHub Link](https://github.com/${data.username})
+
+If you have any questions, feel free to contact me at ${data.email}.
+
 `;
 }
 
 module.exports = generateMarkdown;
+
+

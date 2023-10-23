@@ -7,6 +7,16 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const questions = [
     {
         type: 'input',
+        name: 'username',
+        message: 'What is your Github username?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?'
+    },
+    {
+        type: 'input',
         name: 'title',
         message: 'Project Title:'
     }, 
