@@ -18,22 +18,28 @@ const questions = [
     {
         type: 'input',
         name: 'install',
-        message: 'Installation instructions:',
+        message: 'Input Installation instructions:',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Usage Information:',
+        message: 'Input Usage Information:',
     },
     {
         type: 'input',
         name: 'contribution',
-        message: 'Contribution Guidlines:',
+        message: 'Input Contribution Guidelines:',
     },
     {
         type: 'input',
         name: 'test',
-        message: 'Test instructions:',
+        message: 'Input Test instructions:',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Please select a license:',
+        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
     }];
 
 // TODO: Create a function to write README file
